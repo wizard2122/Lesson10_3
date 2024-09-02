@@ -1,6 +1,6 @@
 ﻿namespace Assets.Visitor
 {
-    public class Elf: Enemy
+    public class Robot : Enemy
     {
         public override void Accept(IEnemyVisitor visiter) => visiter.Visit(this);
     }

@@ -3,11 +3,13 @@ using UnityEngine;
 
 namespace Assets.Visitor
 {
+    [CreateAssetMenu(fileName = "EnemyFactory", menuName = "EnemyFactory")]
     public class EnemyFactory: ScriptableObject
     {
         [SerializeField] private Human _humanPrefab;
         [SerializeField] private Ork _orkPrefab;
         [SerializeField] private Elf _elfPrefab;
+        [SerializeField] private Robot _roborPrefab;
 
         public Enemy Get(EnemyType type)
         {
@@ -21,6 +23,9 @@ namespace Assets.Visitor
 
                 case EnemyType.Ork:
                     return Instantiate(_orkPrefab);
+
+                case EnemyType.Robot:
+                    return Instantiate(_roborPrefab);
 
                 default:
                     throw new ArgumentException(nameof(type));
